@@ -1,35 +1,56 @@
 <script lang="typescript">
 	import Rocket32 from 'carbon-icons-svelte/lib/Rocket32';
-	import Raw32 from 'carbon-icons-svelte/lib/Raw32';
 	import PersonFavorite32 from 'carbon-icons-svelte/lib/PersonFavorite32';
-	import IceAccretion32 from 'carbon-icons-svelte/lib/IceAccretion32';
+	import Bee32 from "carbon-icons-svelte/lib/Bee32";
+	import Star32 from "carbon-icons-svelte/lib/Star32";
+	import Fish32 from "carbon-icons-svelte/lib/Fish32";
+	import Fire32 from "carbon-icons-svelte/lib/Fire32";
+	import PalmTree32 from "carbon-icons-svelte/lib/PalmTree32";
+	import WindyStrong32 from "carbon-icons-svelte/lib/WindyStrong32";
+	import Sunny32 from "carbon-icons-svelte/lib/Sunny32";
+
 	import NavItem from './nav-item.svelte';
 
 	interface menuItem {
 		component: any;
-		text: string;
 		routeName: string;
 	}
 
 	const menuItems: menuItem[] = [
 		{
 			component: Rocket32,
-			text: 'rocket',
 			routeName: ''
 		},
 		{
-			component: Raw32,
-			text: 'raw',
+			component: Sunny32,
 			routeName: ''
 		},
 		{
 			component: PersonFavorite32,
-			text: 'personalFavorite',
 			routeName: ''
 		},
 		{
-			component: IceAccretion32,
-			text: 'IceAcceretion',
+			component: Bee32,
+			routeName: ''
+		},
+		{
+			component: Fire32,
+			routeName: ''
+		},
+		{
+			component: Star32,
+			routeName: ''
+		},
+		{
+			component: PalmTree32,
+			routeName: ''
+		},
+		{
+			component: WindyStrong32,
+			routeName: ''
+		},
+		{
+			component: Fish32,
 			routeName: ''
 		}
 	];
@@ -48,10 +69,7 @@
 <nav class="flex p-3 justify-end">
 	{#if delayedVisibility}
 		{#each menuItems as {component}, index}
-			<NavItem component={component} scaleAfter={(index + 1) * 200}/>
+			<NavItem component={component} index={index + 1}/>
 		{/each}
 	{/if}
 </nav>
-
-<style>
-</style>

@@ -2,17 +2,19 @@
   import { fly } from 'svelte/transition';
 
   export let component;
-  export let scaleAfter;
+  export let index;
   let shouldScale = false;
 
   setTimeout(() => {
-    shouldScale = true;
-  }, scaleAfter);
-
-  setTimeout(() => {
-    shouldScale = false;
-  }, scaleAfter + 600)
-</script>
+    setTimeout(() => {
+      shouldScale = true;
+    }, index * 400);
+  
+    setTimeout(() => {
+      shouldScale = false;
+    }, index * 600);
+  }, 400);
+  </script>
 
 <div 
   in:fly={{ y: 200, duration: 500 }}
