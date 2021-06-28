@@ -3,35 +3,49 @@
 
   export let component;
   export let index;
-  let shouldScale = false;
 
-  setTimeout(() => {
-    setTimeout(() => {
-      shouldScale = true;
-    }, index * 400);
-  
-    setTimeout(() => {
-      shouldScale = false;
-    }, index * 600);
-  }, 400);
   </script>
 
 <div 
   in:fly={{ y: 200, duration: 500 }}
-  class:scale15={shouldScale}
-  class:scale1={!shouldScale}
-  class="px-2">
+  class="nav-item p-2 hover:cursor-pointer"
+>
 	<svelte:component this={component} />
 </div>
 
 <style>
+  .nav-item :global(svg) {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
   .scale15 {
-    transition: all 600ms;
+    transition: all 500ms;
     transform: scale(1.5);
+    color:firebrick;
   }
 
   .scale1 {
-    transition: all 600ms;
+    transition: all 500ms;
     transform: scale(1);
   }
+
+  .nav-item:hover {
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	70% {
+		transform: scale(1.5);
+    color: firebrick
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
 </style>

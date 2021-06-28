@@ -4,7 +4,12 @@ const config = {
 	theme: {
 		extend: {}
 	},
-	plugins: []
+	plugins: [],
+	variants: {
+    extend: {
+      scale: ['hover'],
+    }
+  },
 };
 
 module.exports = config;

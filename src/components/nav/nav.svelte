@@ -66,7 +66,7 @@
   }, 1200);
 </script>
 
-<nav class="flex p-3 justify-end">
+<nav class="flex p-3 flex-wrap justify-center">
 	{#if delayedVisibility}
 		{#each menuItems as {component}, index}
 			<NavItem component={component} index={index + 1}/>
